@@ -1,0 +1,258 @@
+- name: setup_os
+  hosts:
+    - 127.0.0.1
+  vars:
+    - temp_dir: temp_setup
+    - fonts_dir: .fonts
+    - nerdfonts_to_install:
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Agave.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/AnonymousPro.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/AurulentSansMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/BigBlueTerminal.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/BitstreamVeraSansMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IBMPlexMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CodeNewRoman.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ComicShannsMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CommitMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Cousine.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/D2Coding.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DaddyTimeMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DroidSansMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/EnvyCodeR.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FantasqueSansMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/GeistMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Go-Mono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Gohu.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hasklig.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/HeavyData.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/iA-Writer.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Inconsolata.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataGo.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataLGC.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IntelOneMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTerm.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTermSlab.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lekton.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/LiberationMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lilex.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MartianMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monofur.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monoid.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MPlus.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Noto.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/OpenDyslexic.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Overpass.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ProFont.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ProggyClean.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Recursive.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/RobotoMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ShareTechMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SpaceMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Terminus.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Tinos.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Ubuntu.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuSans.zip
+      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/VictorMono.zip
+
+  tasks:
+    ######################
+    # HANDLE DIRECTORIES #
+    ######################
+    - name: check_temp_dir
+      become: true
+      become_user: root
+      stat:
+        path: "{{ temp_dir }}"
+      regiater: temp_dir_status
+
+    - name: check_fonts_dir
+      become: true
+      become_user: root
+      stat:
+        path: "{{ fonts_dir }}"
+      register: fonts_dir_status
+
+    - name: remove_temp_dir
+      become: true
+      become_user: root
+      file:
+        path: "{{ temp_dir }}"
+        state: absent
+      when: temp_dir_status.stat.exist
+
+    - name: create_temp_dir
+      become: true
+      become_user: root
+      file:
+        path: "{{ temp_dir }}"
+        state: directory
+
+    - name: remove_fonts_dir
+      become: true
+      become_user: root
+      file:
+        path: "{{ fonts_dir }}"
+        state: absent
+      when: fonts_dir_status.stat.exist
+
+    - name: create_fonts_directory
+      file:
+        path: "{{ fonts_dir }}"
+        status: directory
+
+    ###################################
+    # INSTALL DOCKER AND DEPENDENCIES #
+    ###################################
+    - name: install_aptitude
+      become: true
+      become_user: root
+      apt:
+        name: aptitude
+        state: present
+        update_cache: true
+ 
+    - name: install_required_packages
+      become: true
+      become_user: root
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - git
+          - curl
+          - software-properties-common
+          - python3
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: present
+        update_cache: true
+      
+    - name: add_docker_gpg_apt_keys
+      become: true
+      become_user: root
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: add_docker_repo
+      become: true
+      become_user: root
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: update_apt_and_install_docker_ce
+      become: true
+      become_user: root
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: install_docker_module_for_python
+      become: true
+      become_user: root
+      pip:
+        name: docker
+
+    ##################
+    # INSTALL NEOVIM #
+    ##################
+    - name: install_neovim
+      become: true
+      become_user: root
+      apt:
+        name: neovim
+        state: latest
+        update_cache: true
+
+    ####################
+    # INSTALL NEOFETCH #
+    ####################
+    - name: install_neofetch
+      become: true
+      become_user: root
+      apt:
+        name: neofetch
+        state: latest
+        update_cache: true
+
+    ################
+    # INSTALL HTOP #
+    ################
+    - name: install_htop
+      become: true
+      become_user: root
+      apt:
+        name: htop
+        state: latest
+        update_cache: true
+
+    #####################
+    # INSTALL TERRAFORM #
+    #####################
+    - name: gnupg_software installation
+      become: true
+      become_user: root
+      shell: "sudo apt-get install -y gnupg software-properties-common"
+
+    - name: get_hashicorp_gnupg_keys
+      become: true
+      become_user: root
+      shell: wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+
+    - name: verify_gnupg_keys
+      become: true
+      become_user: root
+      shell: gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
+
+    - name: find_the_distribution_release_codename_for_your_current_system
+      become: true
+      become_user: root
+      shell: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+    - name: install_terraform
+      become: true
+      become_user: root
+      apt:
+        name: terraform
+        state: latest
+        update_cache: true
+
+    #####################
+    # INSTALL NERDFONTS #
+    #####################
+    - name: install_nerdfonts
+      unarchive:
+        src: "{{ item }}"
+        dest: "{{ fonts_dir }}"
+        remote_src: yes
+      loop: "{{ nerdfonts_to_install }}"
+
+    ################################
+    # INSTALL REASPBERRY_PI IMAGER #
+    ################################
+    - name: install_raspberry_pi_imager
+      become: true
+      become_user: root
+      apt:
+        name: rpi-imager
+        state: latest
+      update_cache: true
