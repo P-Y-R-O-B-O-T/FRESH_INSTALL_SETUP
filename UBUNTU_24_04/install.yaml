@@ -256,3 +256,25 @@
         name: rpi-imager
         state: latest
       update_cache: true
+
+    ########################
+    # INSTALL GNOME TWEAKS #
+    ########################
+    - name: install_gnome_tweaks
+      become: true
+      become_user: root
+      apt:
+        name: gnome-tweaks
+        state: latest
+        update_cache: true
+
+    #########################################
+    # INSTALL GNOME SHELL EXTENSION MANAGER #
+    #########################################
+    - name: install_gnome_shell_extension_manager
+      become: true
+      become_user: root
+      apt:
+        name: gnome-shell-extension-manager
+        state: latest
+        update_cache: true
