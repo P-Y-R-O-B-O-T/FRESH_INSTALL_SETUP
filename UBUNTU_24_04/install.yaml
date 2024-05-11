@@ -3,7 +3,7 @@
     - 127.0.0.1
   vars:
     - temp_dir: temp_setup
-    - fonts_dir: .fonts
+    - fonts_dir: ~/.fonts
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
@@ -79,7 +79,7 @@
       become_user: root
       stat:
         path: "{{ temp_dir }}"
-      regiater: temp_dir_status
+      register: temp_dir_status
 
     - name: check_fonts_dir
       become: true
@@ -94,7 +94,7 @@
       file:
         path: "{{ temp_dir }}"
         state: absent
-      when: temp_dir_status.stat.exist
+      when: temp_dir_status.stat.exists
 
     - name: create_temp_dir
       become: true
@@ -109,12 +109,12 @@
       file:
         path: "{{ fonts_dir }}"
         state: absent
-      when: fonts_dir_status.stat.exist
+      when: fonts_dir_status.stat.exists
 
-    - name: create_fonts_directory
+    - name: create_fonts_dir
       file:
         path: "{{ fonts_dir }}"
-        status: directory
+        state: directory
 
     ###################################
     # INSTALL DOCKER AND DEPENDENCIES #
@@ -169,8 +169,8 @@
     - name: install_docker_module_for_python
       become: true
       become_user: root
-      pip:
-        name: docker
+      apt:
+        name: python3-docker
 
     #####################
     # INSTALL TERRAFORM #
@@ -217,13 +217,13 @@
     # INSTALL                             #
     #     - NEOVIM                        #
     #     - NEOFETCH                      #
-    #     - HTOP
-    #     - TMUX
+    #     - HTOP                          #
+    #     - TMUX                          #
     #     - RASPBERRY_PI IMAGER           #
     #     - GNOME TWEAKS                  #
     #     - GNOME SHELL EXTENSION MANAGER #
     #######################################
-    - name: install_neovim
+    - name: install_different_tools
       become: true
       become_user: root
       apt:
