@@ -172,39 +172,6 @@
       pip:
         name: docker
 
-    ##################
-    # INSTALL NEOVIM #
-    ##################
-    - name: install_neovim
-      become: true
-      become_user: root
-      apt:
-        name: neovim
-        state: latest
-        update_cache: true
-
-    ####################
-    # INSTALL NEOFETCH #
-    ####################
-    - name: install_neofetch
-      become: true
-      become_user: root
-      apt:
-        name: neofetch
-        state: latest
-        update_cache: true
-
-    ################
-    # INSTALL HTOP #
-    ################
-    - name: install_htop
-      become: true
-      become_user: root
-      apt:
-        name: htop
-        state: latest
-        update_cache: true
-
     #####################
     # INSTALL TERRAFORM #
     #####################
@@ -246,35 +213,25 @@
         remote_src: yes
       loop: "{{ nerdfonts_to_install }}"
 
-    ################################
-    # INSTALL REASPBERRY_PI IMAGER #
-    ################################
-    - name: install_raspberry_pi_imager
+    #######################################
+    # INSTALL                             #
+    #     - NEOVIM                        #
+    #     - NEOFETCH                      #
+    #     - HTOP                          #
+    #     - RASPBERRY_PI IMAGER           #
+    #     - GNOME TWEAKS                  #
+    #     - GNOME SHELL EXTENSION MANAGER #
+    #######################################
+    - name: install_neovim
       become: true
       become_user: root
       apt:
-        name: rpi-imager
-        state: latest
-      update_cache: true
-
-    ########################
-    # INSTALL GNOME TWEAKS #
-    ########################
-    - name: install_gnome_tweaks
-      become: true
-      become_user: root
-      apt:
-        name: gnome-tweaks
-        state: latest
-        update_cache: true
-
-    #########################################
-    # INSTALL GNOME SHELL EXTENSION MANAGER #
-    #########################################
-    - name: install_gnome_shell_extension_manager
-      become: true
-      become_user: root
-      apt:
-        name: gnome-shell-extension-manager
+        pkg:
+          - neovim
+          - neofetch
+          - htop
+          - rpi-imager
+          - gnome-tweaks
+          - gnome-shell-extension-manager
         state: latest
         update_cache: true
