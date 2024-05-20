@@ -215,6 +215,7 @@
 
     #######################################
     # INSTALL                             #
+    #     - WGET                          #
     #     - NEOVIM                        #
     #     - NEOFETCH                      #
     #     - HTOP                          #
@@ -228,6 +229,7 @@
       become_user: root
       apt:
         pkg:
+          - wget
           - neovim
           - neofetch
           - htop
