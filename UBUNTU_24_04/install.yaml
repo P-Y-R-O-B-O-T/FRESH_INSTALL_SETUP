@@ -218,6 +218,8 @@
     #     - WGET                          #
     #     - RUSTC                         #
     #     - CARGO                         #
+    #     - GO                            #
+    #     - RIPGREP                       #
     #     - NEOVIM                        #
     #     - NEOFETCH                      #
     #     - HTOP                          #
@@ -234,6 +236,8 @@
           - wget
           - rustc
           - cargo
+          - golang-go
+          - ripgrep
           - neovim
           - neofetch
           - htop
@@ -243,6 +247,16 @@
           - gnome-shell-extension-manager
         state: latest
         update_cache: true
+
+    ########################
+    # INSTALL NODE AND NPM #
+    ########################
+    - name: install_node
+      become: true
+      become_user: root
+      shell:
+        cmd: |
+          curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - && sudo apt-get update && sudo apt-get install -y nodejs
 
     ###########################
     # INSTALL STARSHIP PROMPT #
