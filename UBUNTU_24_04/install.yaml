@@ -246,4 +246,9 @@
     - name: install_starship_prompt
       become: true
       become_user: root
-      shell: "curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh"
+      shell:
+        cmd: |
+          curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh && echo "\"$(starship init bash)\""
+
+# also need to add installation for go-lang, rust, cargo, latest nodejs, npm
+# cloning of neovim config and tmux config also needed to be added
