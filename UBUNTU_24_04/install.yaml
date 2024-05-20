@@ -216,6 +216,8 @@
     #######################################
     # INSTALL                             #
     #     - WGET                          #
+    #     - RUSTC                         #
+    #     - CARGO                         #
     #     - NEOVIM                        #
     #     - NEOFETCH                      #
     #     - HTOP                          #
@@ -230,6 +232,8 @@
       apt:
         pkg:
           - wget
+          - rustc
+          - cargo
           - neovim
           - neofetch
           - htop
@@ -250,5 +254,5 @@
         cmd: |
           curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh && echo "\"$(starship init bash)\""
 
-# also need to add installation for go-lang, rust, cargo, latest nodejs, npm
+# also need to add installation for go-lang, latest nodejs, npm
 # cloning of neovim config and tmux config also needed to be added
