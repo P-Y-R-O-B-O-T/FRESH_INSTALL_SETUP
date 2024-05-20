@@ -246,4 +246,4 @@
     - name: install_starship_prompt
       become: true
       become_user: root
-      shell: "curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y"
+      shell: "curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh"
