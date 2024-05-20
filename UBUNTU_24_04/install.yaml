@@ -266,7 +266,7 @@
       become_user: root
       shell:
         cmd: |
-          curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh && echo "\"$(starship init bash)\""
+          curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh
+          echo \"$(starship init bash)\" >> ~/.bashrc
 
-# also need to add installation for go-lang, latest nodejs, npm
 # cloning of neovim config and tmux config also needed to be added
