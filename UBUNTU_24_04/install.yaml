@@ -2,8 +2,8 @@
   hosts:
     - 127.0.0.1
   vars:
-    - temp_dir: temp_setup
-    - fonts_dir: ~/.fonts
+    - temp_dir: /home/{{ lookup('env', 'USER') }}/temp_setup
+    - fonts_dir: /home/{{ lookup('env', 'USER') }}/.fonts
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
@@ -213,6 +213,24 @@
         remote_src: yes
       loop: "{{ nerdfonts_to_install }}"
 
+    ########################
+    # GET TMUX CONFIG FILE #
+    ########################
+    - name: get_tmux_config
+      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/TMUX_USAGE_CONFIG/main/.tmux.conf /home/{{ lookup('env', 'USER') }}/.tmux.conf"
+
+    #######################
+    # GET STARSHIP CONFIG #
+    #######################
+    - name: get_starship_config
+      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/STARSHIP_PROMPT_SETUP/main/pastel_powerline.toml /home/{{ lookup('env', 'USER') }}/.config/starship.toml"
+
+    ###############
+    # INSTALL TPM #
+    ###############
+    - name: install_tpm
+      shell: "git clone https://github.com/tmux-plugins/tpm.git /home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm && tmux source-file /home/{{ lookup('env', 'USER') }}/.tmux.conf"
+
     #######################################
     # INSTALL                             #
     #     - WGET                          #
@@ -267,6 +285,8 @@
       shell:
         cmd: |
           curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh
-          echo \"$(starship init bash)\" >> ~/.bashrc
+
+    - name: add_line_for_starship_in_.bashrc
+      shell: "echo \"$(starship init bash)\" >> /home/{{ lookup('env', 'USER') }}/.bashrc"
 
 # cloning of neovim config and tmux config also needed to be added
