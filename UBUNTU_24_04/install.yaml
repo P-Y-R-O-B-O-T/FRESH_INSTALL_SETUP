@@ -3,6 +3,9 @@
     - 127.0.0.1
   vars:
     - temp_dir: /home/{{ lookup('env', 'USER') }}/temp_setup
+    - tmux_config_path: /home/{{ lookup('env', 'USER') }}/.tmux.conf
+    - starship_prompt_config_path: /home/{{ lookup('env', 'USER') }}/.config/starship.toml
+    - tpm_dir: /home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm
     - fonts_dir: /home/{{ lookup('env', 'USER') }}/.fonts
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
@@ -88,6 +91,13 @@
         path: "{{ fonts_dir }}"
       register: fonts_dir_status
 
+    - name: check_tpm_dir
+      become: true
+      become_user: root
+      stat:
+        path: "{{ tpm_dir }}"
+      register: tpm_dir_status
+
     - name: remove_temp_dir
       become: true
       become_user: root
@@ -115,6 +125,14 @@
       file:
         path: "{{ fonts_dir }}"
         state: directory
+
+    - name: remove_tpm_dir
+      become: true
+      become_user: root
+      file:
+        path: "{{ tpm_dir }}"
+        state: absent
+      when: tpm_dir_status.stat.exists
 
     ###################################
     # INSTALL DOCKER AND DEPENDENCIES #
@@ -213,24 +231,6 @@
         remote_src: yes
       loop: "{{ nerdfonts_to_install }}"
 
-    ########################
-    # GET TMUX CONFIG FILE #
-    ########################
-    - name: get_tmux_config
-      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/TMUX_USAGE_CONFIG/main/.tmux.conf /home/{{ lookup('env', 'USER') }}/.tmux.conf"
-
-    #######################
-    # GET STARSHIP CONFIG #
-    #######################
-    - name: get_starship_config
-      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/STARSHIP_PROMPT_SETUP/main/pastel_powerline.toml /home/{{ lookup('env', 'USER') }}/.config/starship.toml"
-
-    ###############
-    # INSTALL TPM #
-    ###############
-    - name: install_tpm
-      shell: "git clone https://github.com/tmux-plugins/tpm.git /home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm && tmux source-file /home/{{ lookup('env', 'USER') }}/.tmux.conf"
-
     #######################################
     # INSTALL                             #
     #     - WGET                          #
@@ -265,6 +265,24 @@
           - gnome-shell-extension-manager
         state: latest
         update_cache: true
+
+    ########################
+    # GET TMUX CONFIG FILE #
+    ########################
+    - name: get_tmux_config
+      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/TMUX_USAGE_CONFIG/main/.tmux.conf > {{ tmux_config_path }}"
+
+    #######################
+    # GET STARSHIP CONFIG #
+    #######################
+    - name: get_starship_config
+      shell: "curl https://raw.githubusercontent.com/P-Y-R-O-B-O-T/STARSHIP_PROMPT_SETUP/main/pastel_powerline.toml > {{ starship_prompt_config_path }}"
+
+    ###############
+    # INSTALL TPM #
+    ###############
+    - name: install_tpm
+      shell: "git clone https://github.com/tmux-plugins/tpm.git {{ tpm_dir }}"
 
     ########################
     # INSTALL NODE AND NPM #
