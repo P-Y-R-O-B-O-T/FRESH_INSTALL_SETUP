@@ -10,61 +10,61 @@
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Agave.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/AnonymousPro.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Agave.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/AnonymousPro.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/AurulentSansMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/BigBlueTerminal.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/BitstreamVeraSansMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IBMPlexMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IBMPlexMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CascadiaCode.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CodeNewRoman.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CodeNewRoman.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ComicShannsMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CommitMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Cousine.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CommitMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Cousine.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/D2Coding.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DaddyTimeMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DaddyTimeMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DroidSansMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/EnvyCodeR.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FantasqueSansMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/GeistMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Go-Mono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/GeistMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Go-Mono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Gohu.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hasklig.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hasklig.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/HeavyData.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hermit.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/iA-Writer.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Inconsolata.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataGo.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataLGC.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IntelOneMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/iA-Writer.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Inconsolata.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataGo.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/InconsolataLGC.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IntelOneMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTerm.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTermSlab.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lekton.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/LiberationMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lilex.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lekton.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/LiberationMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Lilex.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MartianMono.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monaspace.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monofur.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monoid.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MPlus.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Noto.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Monoid.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Mononoki.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/MPlus.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Noto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/OpenDyslexic.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Overpass.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Overpass.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ProFont.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ProggyClean.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Recursive.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/RobotoMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Recursive.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/RobotoMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ShareTechMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SourceCodePro.zip
-      - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SpaceMono.zip
+      #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/SpaceMono.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Terminus.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Tinos.zip
