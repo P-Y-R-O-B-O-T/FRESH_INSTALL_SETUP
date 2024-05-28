@@ -4,9 +4,24 @@
   vars:
     - temp_dir: /home/{{ lookup('env', 'USER') }}/temp_setup
     - tmux_config_path: /home/{{ lookup('env', 'USER') }}/.tmux.conf
+    - general_config_path: /home/{{ lookup('env', 'USER') }}/.config
     - starship_prompt_config_path: /home/{{ lookup('env', 'USER') }}/.config/starship.toml
     - tpm_dir: /home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm
     - fonts_dir: /home/{{ lookup('env', 'USER') }}/.fonts
+    - apt_packages:
+      - wget
+      - rustc
+      - cargo
+      - golang-go
+      - ripgrep
+      - neovim
+      - neofetch
+      - htop
+      - tmux
+      - rpi-imager
+      - gnome-tweaks
+      - gnome-shell-extension-manager
+ 
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
@@ -231,40 +246,17 @@
         remote_src: yes
       loop: "{{ nerdfonts_to_install }}"
 
-    #######################################
-    # INSTALL                             #
-    #     - WGET                          #
-    #     - RUSTC                         #
-    #     - CARGO                         #
-    #     - GO                            #
-    #     - RIPGREP                       #
-    #     - NEOVIM                        #
-    #     - NEOFETCH                      #
-    #     - HTOP                          #
-    #     - TMUX                          #
-    #     - RASPBERRY_PI IMAGER           #
-    #     - GNOME TWEAKS                  #
-    #     - GNOME SHELL EXTENSION MANAGER #
-    #######################################
+    ########################
+    # INSTALL APT PACKAGES #
+    ########################
     - name: install_different_tools
       become: true
       become_user: root
       apt:
-        pkg:
-          - wget
-          - rustc
-          - cargo
-          - golang-go
-          - ripgrep
-          - neovim
-          - neofetch
-          - htop
-          - tmux
-          - rpi-imager
-          - gnome-tweaks
-          - gnome-shell-extension-manager
+        name: {{ item }}
         state: latest
         update_cache: true
+      loop: "{{ apt_packages }}"
 
     ########################
     # GET TMUX CONFIG FILE #
@@ -307,4 +299,22 @@
     - name: add_line_for_starship_in_.bashrc
       shell: "echo \"$(starship init bash)\" >> /home/{{ lookup('env', 'USER') }}/.bashrc"
 
+    #####################
+    # GET NEOVIM CONFIG #
+    #####################
+    - name: get_neovim_config
+      git:
+        repo: https://github.com/P-Y-R-O-B-O-T/FRESH_INSTALL_SETUP.git
+        dest: "{{ temp_dir }}/nvim_conf"
+        clone: yes
+        update: yes
+
+    #######################
+    # PLACE NEOVIM CONFIG #
+    #######################
+    - name: place_neovim_config
+      copy:
+        src: "{{ temp_dir }}/nvim_conf/nvim/"
+        dest: "{{general_config_path}}/nvim/"
+        remote_src: true
 # cloning of neovim config and tmux config also needed to be added
