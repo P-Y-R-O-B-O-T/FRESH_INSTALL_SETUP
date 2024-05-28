@@ -317,4 +317,3 @@
         src: "{{ temp_dir }}/nvim_conf/nvim/"
         dest: "{{general_config_path}}/nvim/"
         remote_src: true
-# cloning of neovim config and tmux config also needed to be added
