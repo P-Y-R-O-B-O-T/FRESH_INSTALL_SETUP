@@ -14,13 +14,16 @@
       - cargo
       - golang-go
       - ripgrep
-      - neovim
+      #- neovim
       - neofetch
       - htop
       - tmux
       - rpi-imager
       - gnome-tweaks
       - gnome-shell-extension-manager
+
+    - snap_packages_classic:
+      - nvim
  
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
@@ -249,7 +252,7 @@
     ########################
     # INSTALL APT PACKAGES #
     ########################
-    - name: install_different_tools
+    - name: install_apt_packages
       become: true
       become_user: root
       apt:
@@ -257,6 +260,15 @@
         state: latest
         update_cache: true
       loop: "{{ apt_packages }}"
+
+    #########################
+    # INSTALL SNAP PACKAGES #
+    #########################
+    - name: install_snap_packages
+      community.general.snap:
+        name: "{{ item }}"
+        classic: yes
+      loop: "{{ snap_packages_classic }}"
 
     ########################
     # GET TMUX CONFIG FILE #
