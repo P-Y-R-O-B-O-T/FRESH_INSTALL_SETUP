@@ -256,7 +256,7 @@
       become: true
       become_user: root
       apt:
-        name: {{ item }}
+        name: "{{ item }}"
         state: latest
         update_cache: true
       loop: "{{ apt_packages }}"
@@ -265,6 +265,8 @@
     # INSTALL SNAP PACKAGES #
     #########################
     - name: install_snap_packages
+      become: true
+      become_user: root
       community.general.snap:
         name: "{{ item }}"
         classic: yes
@@ -315,8 +317,10 @@
     # GET NEOVIM CONFIG #
     #####################
     - name: get_neovim_config
+      become: true
+      become_user: root
       git:
-        repo: https://github.com/P-Y-R-O-B-O-T/FRESH_INSTALL_SETUP.git
+        repo: https://github.com/P-Y-R-O-B-O-T/NVCHAD_USAGE_CONFIG.git
         dest: "{{ temp_dir }}/nvim_conf"
         clone: yes
         update: yes
