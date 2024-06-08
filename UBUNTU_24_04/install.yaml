@@ -2,12 +2,12 @@
   hosts:
     - 127.0.0.1
   vars:
-    - temp_dir: /home/{{ lookup('env', 'USER') }}/temp_setup
-    - tmux_config_path: /home/{{ lookup('env', 'USER') }}/.tmux.conf
-    - general_config_path: /home/{{ lookup('env', 'USER') }}/.config
-    - starship_prompt_config_path: /home/{{ lookup('env', 'USER') }}/.config/starship.toml
-    - tpm_dir: /home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm
-    - fonts_dir: /home/{{ lookup('env', 'USER') }}/.fonts
+    - temp_dir: /home/{{ ansible_user }}/temp_setup
+    - tmux_config_path: /home/{{ ansible_user }}/.tmux.conf
+    - general_config_path: /home/{{ ansible_user }}/.config
+    - starship_prompt_config_path: /home/{{ ansible_user }}/.config/starship.toml
+    - tpm_dir: /home/{{ ansible_user }}/.tmux/plugins/tpm
+    - fonts_dir: /home/{{ ansible_user }}/.fonts
     - apt_packages:
       - wget
       - rustc
@@ -311,7 +311,7 @@
           curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh
 
     - name: add_line_for_starship_in_.bashrc
-      shell: "echo \"$(starship init bash)\" >> /home/{{ lookup('env', 'USER') }}/.bashrc"
+      shell: "echo \"$(starship init bash)\" >> /home/{{ ansible_user }}/.bashrc"
 
     #####################
     # GET NEOVIM CONFIG #
