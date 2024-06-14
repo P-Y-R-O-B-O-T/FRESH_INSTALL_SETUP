@@ -14,9 +14,11 @@
       - cargo
       - golang-go
       - ripgrep
+      - transmission
       #- neovim
       - neofetch
       - htop
+      - vlc
       - tmux
       - rpi-imager
       - gnome-tweaks
@@ -24,6 +26,7 @@
 
     - snap_packages_classic:
       - nvim
+      - steam
  
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
