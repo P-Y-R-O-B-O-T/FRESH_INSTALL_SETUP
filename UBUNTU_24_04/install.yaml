@@ -8,6 +8,10 @@
     - starship_prompt_config_path: /home/{{ ansible_user }}/.config/starship.toml
     - tpm_dir: /home/{{ ansible_user }}/.tmux/plugins/tpm
     - fonts_dir: /home/{{ ansible_user }}/.fonts
+    - pip_packages:
+      - rich
+      - scikit-learn
+
     - apt_packages:
       - wget
       - rustc
@@ -27,7 +31,7 @@
     - snap_packages_classic:
       - nvim
       - steam
- 
+
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
@@ -241,6 +245,14 @@
         name: terraform
         state: latest
         update_cache: true
+
+    ###########################
+    # INSTALL PYTHON PACKAGES #
+    ###########################
+    - name: install_python_packages
+      ansible.builtin.pip:
+        name: "{{ item }}"
+      loop: "{{ pip_packages }}"
 
     #####################
     # INSTALL NERDFONTS #
