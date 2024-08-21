@@ -11,7 +11,7 @@
     - pip_packages:
       - rich
       - scikit-learn
-      - openapi
+      - openai
 
     - apt_packages:
       - wget
