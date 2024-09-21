@@ -29,6 +29,9 @@
       - rpi-imager
       - gnome-tweaks
       - gnome-shell-extension-manager
+      - xsel
+      - xclip
+      - wl-clipboard
 
     - snap_packages_classic:
       - nvim
