@@ -330,9 +330,6 @@
         cmd: |
           curl -sS https://starship.rs/install.sh > qwe.sh && sudo chmod +x qwe.sh && sudo ./qwe.sh -y && rm qwe.sh
 
-    - name: add_line_for_starship_in_.bashrc
-      shell: "echo \"$(starship init bash)\" >> /home/{{ ansible_user }}/.bashrc"
-
     #####################
     # GET NEOVIM CONFIG #
     #####################
@@ -353,3 +350,29 @@
         src: "{{ temp_dir }}/nvim_conf/nvim/"
         dest: "{{general_config_path}}/nvim/"
         remote_src: true
+
+    ################################
+    # INSTALL POKEMON COLORSCRIPTS #
+    ################################
+    - name: clone_pokemon_colorscripts
+      git:
+        repo: https://gitlab.com/phoneybadger/pokemon-colorscripts.git
+        dest: "{{ temp_dir }}/pokemon"
+        remote_src: true
+
+    - name:
+      become: true
+      become_user: root
+      shell: |
+        "cd {{ temp_dir }}/pokemon"
+        "./install.sh"
+
+    #########################
+    # SET BASHRC CONF LINES #
+    #########################
+    - name: add_conf_lines_to_bashrc
+      shell: |
+        "echo \"eval $(starship init bash --print-full-init)\" >> /home/{{ ansible_user }}/.bashrc"
+        "echo \"tmux\" "
+        "echo \"clear\" "
+        "echo pokemon-colorscripts -r --no-title "
