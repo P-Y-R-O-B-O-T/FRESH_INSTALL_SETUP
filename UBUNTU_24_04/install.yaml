@@ -375,4 +375,4 @@
         "echo \"eval $(starship init bash --print-full-init)\" >> /home/{{ ansible_user }}/.bashrc"
         "echo \"tmux\" >> /home/{{ ansible_user }}/.bashrc"
         "echo \"clear\" >> /home/{{ ansible_user }}/.bashrc"
-        "echo pokemon-colorscripts -r --no-title >> /home/{{ ansible_user }}/.bashrc"
+        "echo \"pokemon-colorscripts -r --no-title\" >> /home/{{ ansible_user }}/.bashrc"
