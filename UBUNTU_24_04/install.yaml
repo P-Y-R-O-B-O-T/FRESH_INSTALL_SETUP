@@ -13,6 +13,7 @@
       - asciichartpy
       - scikit-learn
       - google-generativeai
+      - streamlit
 
     - apt_packages:
       - wget
