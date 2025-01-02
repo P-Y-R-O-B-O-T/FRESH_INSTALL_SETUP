@@ -36,6 +36,7 @@
     - snap_packages_classic:
       - nvim
       - steam
+      - slack
 
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
