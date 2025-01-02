@@ -10,7 +10,6 @@
     - fonts_dir: /home/{{ ansible_user }}/.fonts
     - pip_packages:
       - rich
-      - asciichartpy
       - scikit-learn
       - google-generativeai
       - streamlit
