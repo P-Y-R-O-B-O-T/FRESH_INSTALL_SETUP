@@ -11,7 +11,6 @@
     - pip_packages:
       - rich
       - scikit-learn
-      - google-generativeai
       - streamlit
 
     - apt_packages:
@@ -36,7 +35,6 @@
     - snap_packages_classic:
       - nvim
       - steam
-      - slack
 
     - nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
@@ -359,21 +357,21 @@
       git:
         repo: https://gitlab.com/phoneybadger/pokemon-colorscripts.git
         dest: "{{ temp_dir }}/pokemon"
-        remote_src: true
 
     - name:
       become: true
       become_user: root
       shell: |
-        "cd {{ temp_dir }}/pokemon"
-        "./install.sh"
+        cd {{ temp_dir }}/pokemon
+        ./install.sh
 
     #########################
     # SET BASHRC CONF LINES #
     #########################
     - name: add_conf_lines_to_bashrc
       shell: |
-        "echo \"eval $(starship init bash --print-full-init)\" >> /home/{{ ansible_user }}/.bashrc"
-        "echo \"tmux\" >> /home/{{ ansible_user }}/.bashrc"
-        "echo \"clear\" >> /home/{{ ansible_user }}/.bashrc"
-        "echo \"pokemon-colorscripts -r --no-title\" >> /home/{{ ansible_user }}/.bashrc"
+        echo "tmux" >> /home/{{ ansible_user }}/.bashrc
+        echo "clear" >> /home/{{ ansible_user }}/.bashrc
+        echo "pokemon-colorscripts -r --no-title" >> /home/{{ ansible_user }}/.bashrc
+        echo "alias clear='clear; pokemon-colorscripts -r --no-title'" >> /home/{{ ansible_user }}/.bashrc
+        echo 'eval $(starship init bash)' >> /home/{{ ansible_user }}/.bashrc
