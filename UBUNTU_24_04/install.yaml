@@ -255,6 +255,7 @@
     - name: install_python_packages
       ansible.builtin.pip:
         name: "{{ item }}"
+        extra_args: "--break-system-packages"
       loop: "{{ pip_packages }}"
 
     #####################
