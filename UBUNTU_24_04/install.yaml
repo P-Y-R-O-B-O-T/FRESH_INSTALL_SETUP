@@ -2,17 +2,17 @@
   hosts:
     - 127.0.0.1
   vars:
-    - temp_dir: /home/{{ ansible_user }}/temp_setup
-    - tmux_config_path: /home/{{ ansible_user }}/.tmux.conf
-    - general_config_path: /home/{{ ansible_user }}/.config
-    - starship_prompt_config_path: /home/{{ ansible_user }}/.config/starship.toml
-    - tpm_dir: /home/{{ ansible_user }}/.tmux/plugins/tpm
-    - fonts_dir: /home/{{ ansible_user }}/.fonts
-    - pip_packages:
+    temp_dir: /home/{{ ansible_user }}/temp_setup
+    tmux_config_path: /home/{{ ansible_user }}/.tmux.conf
+    general_config_path: /home/{{ ansible_user }}/.config
+    starship_prompt_config_path: /home/{{ ansible_user }}/.config/starship.toml
+    tpm_dir: /home/{{ ansible_user }}/.tmux/plugins/tpm
+    fonts_dir: /home/{{ ansible_user }}/.fonts
+    pip_packages:
       - rich
       - streamlit
 
-    - apt_packages:
+    apt_packages:
       - wget
       - rustc
       - cargo
@@ -31,11 +31,11 @@
       - xclip
       - wl-clipboard
 
-    - snap_packages_classic:
+    snap_packages_classic:
       - nvim
       # - steam
 
-    - nerdfonts_to_install:
+    nerdfonts_to_install:
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
       - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/3270.zip
       #- https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Agave.zip
@@ -218,37 +218,6 @@
       apt:
         name: python3-docker
 
-    # #####################
-    # # INSTALL TERRAFORM #
-    # #####################
-    # - name: gnupg_software installation
-    #   become: true
-    #   become_user: root
-    #   shell: "sudo apt-get install -y gnupg software-properties-common"
-    #
-    # - name: get_hashicorp_gnupg_keys
-    #   become: true
-    #   become_user: root
-    #   shell: wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-    #
-    # - name: verify_gnupg_keys
-    #   become: true
-    #   become_user: root
-    #   shell: gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint
-    #
-    # - name: find_the_distribution_release_codename_for_your_current_system
-    #   become: true
-    #   become_user: root
-    #   shell: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-    #
-    # - name: install_terraform
-    #   become: true
-    #   become_user: root
-    #   apt:
-    #     name: terraform
-    #     state: latest
-    #     update_cache: true
-
     ###########################
     # INSTALL PYTHON PACKAGES #
     ###########################
@@ -346,37 +315,21 @@
         path: "{{ general_config_path }}/nvim"
         state: directory
 
-    # - name: get_neovim_config
-    #   become: true
-    #   become_user: root
-    #   git:
-    #     repo: https://github.com/P-Y-R-O-B-O-T/NVCHAD_USAGE_CONFIG.git
-    #     dest: "{{ temp_dir }}/nvim_conf"
-    #     clone: yes
-    #     update: yes
-    
     - name: install_nvchad
       become: true
       become_user: root
       git:
-        repo: https://github.com/P-Y-R-O-B-O-T/NVCHAD_USAGE_CONFIG.git
+        repo: https://github.com/NvChad/starter
         dest: "{{ general_config_path }}/nvim"
         clone: yes
         update: yes
-
-    # #######################
-    # # PLACE NEOVIM CONFIG #
-    # #######################
-    # - name: place_neovim_config
-    #   copy:
-    #     src: "{{ temp_dir }}/nvim_conf/nvim/"
-    #     dest: "{{general_config_path}}/nvim/"
-    #     remote_src: true
 
     ################################
     # INSTALL POKEMON COLORSCRIPTS #
     ################################
     - name: clone_pokemon_colorscripts
+      become: true
+      become_user: root
       git:
         repo: https://gitlab.com/phoneybadger/pokemon-colorscripts.git
         dest: "{{ temp_dir }}/pokemon"
